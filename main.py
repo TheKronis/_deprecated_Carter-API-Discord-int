@@ -36,7 +36,7 @@ async def on_message(message):
                 async with channel.typing():
                     #   This sends the request to the Carter API and wait for a response
                     response = requests.post(
-                        "https://api.carterlabs.ai/chat",
+                        "https://api.carterlabs.ai/api/chat",
                         headers={
                             "Content-Type": "application/json"
                         },
@@ -47,7 +47,7 @@ async def on_message(message):
                             #   Your Carter API Key
                             "key": os.getenv("CARTER_TOKEN"),
                             #   User Identifier, used to remember information about the user
-                            "playerId": message.author.id
+                            "user_id": message.author.id
                         })
                     )
 
